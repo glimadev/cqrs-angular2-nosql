@@ -44,29 +44,6 @@ namespace cqrs_angular2_nosql.Infra.Data.Repository
 
             _repositoryIdentityProperty = TryGetIdProperty(idNameFactory);
         }
-
-        public async Task<T> AddOrUpdateAsync(T entity, RequestOptions requestOptions = null)
-        {
-            T upsertedEntity;
-
-            entity.Actived = true;
-
-            if (string.IsNullOrEmpty(entity.Id))
-            {
-                entity.DateCreated = DateTime.Now.ToString();
-            }
-            else
-            {
-                entity.DateEdited = DateTime.Now.ToString();
-            }
-
-            var upsertedDoc = await _client.UpsertDocumentAsync((await _collection).SelfLink, entity, requestOptions);
-
-            upsertedEntity = JsonConvert.DeserializeObject<T>(upsertedDoc.Resource.ToString());
-
-            return upsertedEntity;
-        }
-
         public async Task<List<T>> GetAllAsync()
         {
             return _client.CreateDocumentQuery<T>((await _collection).SelfLink).AsEnumerable().ToList();
@@ -95,6 +72,28 @@ namespace cqrs_angular2_nosql.Infra.Data.Repository
         public async Task<IQueryable<T>> QueryAsync()
         {
             return _client.CreateDocumentQuery<T>((await _collection).DocumentsLink);
+        }
+
+        public async Task<T> AddOrUpdateAsync(T entity, RequestOptions requestOptions = null)
+        {
+            T upsertedEntity;
+
+            entity.Actived = true;
+
+            if (string.IsNullOrEmpty(entity.Id))
+            {
+                entity.DateCreated = DateTime.Now.ToString();
+            }
+            else
+            {
+                entity.DateEdited = DateTime.Now.ToString();
+            }
+
+            var upsertedDoc = await _client.UpsertDocumentAsync((await _collection).SelfLink, entity, requestOptions);
+
+            upsertedEntity = JsonConvert.DeserializeObject<T>(upsertedDoc.Resource.ToString());
+
+            return upsertedEntity;
         }
 
         public async Task<bool> DeleteLogicAsync(string id, RequestOptions requestOptions = null)
