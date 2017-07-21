@@ -40,11 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client\In\ClientInsertInVM.cs" />
+    <Compile Include="Client\In\ClientUpdateInVM.cs" />
+    <Compile Include="Client\Out\ClientOutVM.cs" />
+    <Compile Include="Common\ResultServiceVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Client\" />
-    <Folder Include="Common\" />
+    <Folder Include="Client\Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

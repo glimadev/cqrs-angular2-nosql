@@ -49,11 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Repository\EntityBase.cs" />
+    <Compile Include="Repository\ClientRepository.cs" />
     <Compile Include="Context\DocumentDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\Interfaces\IEntityBase.cs" />
-    <Compile Include="Repository\Interfaces\IRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +59,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\cqrs-angular2-nosql.Domain.Core\cqrs-angular2-nosql.Domain.Core.csproj">
+      <Project>{2AF384F4-F2B5-4A85-82FF-3599AEAE3B08}</Project>
+      <Name>cqrs-angular2-nosql.Domain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cqrs-angular2-nosql.Domain\cqrs-angular2-nosql.Domain.csproj">
+      <Project>{9240505D-D32E-42B2-9E07-4ACAD363748A}</Project>
+      <Name>cqrs-angular2-nosql.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\cqrs-angular2-nosql.Util\cqrs-angular2-nosql.Util.csproj">
       <Project>{A1DBDD48-0D42-4887-9C04-623A636C51D0}</Project>
       <Name>cqrs-angular2-nosql.Util</Name>
