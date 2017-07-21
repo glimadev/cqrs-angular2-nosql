@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cqrs-angular2-nosql", "cqrs-angular2-nosql\cqrs-angular2-nosql.csproj", "{C05FE8B3-C9B1-4A8C-838A-6280C20AE9BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cqrs-angular2-nosql.Web", "cqrs-angular2-nosql.Web\cqrs-angular2-nosql.Web.csproj", "{C05FE8B3-C9B1-4A8C-838A-6280C20AE9BE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{BC44C2C2-02D8-459B-BD1E-F92CD9F7561F}"
 EndProject
@@ -22,6 +22,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1 - Data", "3.1 - Data", "{CFB5C6EC-F264-4EB6-BDF8-4E51A3AE4FBE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.2 - Cross-Cutting", "3.2 - Cross-Cutting", "{BC5843DC-405C-4472-A039-F5C274C16D17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cqrs-angular2-nosql.Infra.Data", "cqrs-angular2-nosql.Infra.Data\cqrs-angular2-nosql.Infra.Data.csproj", "{32EB4DF6-0D0D-444D-A949-EE55CB6E6FA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cqrs-angular2-nosql.Infra.Repository", "cqrs-angular2-nosql.Infra.Repository\cqrs-angular2-nosql.Infra.Repository.csproj", "{2B07B202-DDF9-480D-8A14-273D6816C7B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cqrs-angular2-nosql.Infra.IoC", "cqrs-angular2-nosql.Infra.IoC\cqrs-angular2-nosql.Infra.IoC.csproj", "{D149DDC3-3052-40E3-A8CD-9ED17D1859C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +51,18 @@ Global
 		{9240505D-D32E-42B2-9E07-4ACAD363748A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9240505D-D32E-42B2-9E07-4ACAD363748A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9240505D-D32E-42B2-9E07-4ACAD363748A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32EB4DF6-0D0D-444D-A949-EE55CB6E6FA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32EB4DF6-0D0D-444D-A949-EE55CB6E6FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32EB4DF6-0D0D-444D-A949-EE55CB6E6FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32EB4DF6-0D0D-444D-A949-EE55CB6E6FA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B07B202-DDF9-480D-8A14-273D6816C7B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B07B202-DDF9-480D-8A14-273D6816C7B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B07B202-DDF9-480D-8A14-273D6816C7B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B07B202-DDF9-480D-8A14-273D6816C7B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D149DDC3-3052-40E3-A8CD-9ED17D1859C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D149DDC3-3052-40E3-A8CD-9ED17D1859C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D149DDC3-3052-40E3-A8CD-9ED17D1859C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D149DDC3-3052-40E3-A8CD-9ED17D1859C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,5 +74,8 @@ Global
 		{9240505D-D32E-42B2-9E07-4ACAD363748A} = {A273C321-81E9-4DCF-9685-B3C492B14330}
 		{CFB5C6EC-F264-4EB6-BDF8-4E51A3AE4FBE} = {EA97BFB1-ADC2-4CED-A335-72D3FFB688BB}
 		{BC5843DC-405C-4472-A039-F5C274C16D17} = {EA97BFB1-ADC2-4CED-A335-72D3FFB688BB}
+		{32EB4DF6-0D0D-444D-A949-EE55CB6E6FA8} = {CFB5C6EC-F264-4EB6-BDF8-4E51A3AE4FBE}
+		{2B07B202-DDF9-480D-8A14-273D6816C7B0} = {CFB5C6EC-F264-4EB6-BDF8-4E51A3AE4FBE}
+		{D149DDC3-3052-40E3-A8CD-9ED17D1859C3} = {BC5843DC-405C-4472-A039-F5C274C16D17}
 	EndGlobalSection
 EndGlobal
