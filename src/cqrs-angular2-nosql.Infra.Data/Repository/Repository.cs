@@ -1,5 +1,6 @@
-﻿using cqrs_angular2_nosql.Infra.Data.Context;
-using cqrs_angular2_nosql.Infra.Data.Repository.Interfaces;
+﻿using cqrs_angular2_nosql.Domain.Core.Models;
+using cqrs_angular2_nosql.Domain.Interfaces;
+using cqrs_angular2_nosql.Infra.Data.Context;
 using cqrs_angular2_nosql.Util;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
@@ -44,6 +45,7 @@ namespace cqrs_angular2_nosql.Infra.Data.Repository
 
             _repositoryIdentityProperty = TryGetIdProperty(idNameFactory);
         }
+
         public async Task<List<T>> GetAllAsync()
         {
             return _client.CreateDocumentQuery<T>((await _collection).SelfLink).AsEnumerable().ToList();
