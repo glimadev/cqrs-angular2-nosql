@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Client\In\ClientInsertInVM.cs" />
     <Compile Include="Client\In\ClientUpdateInVM.cs" />
+    <Compile Include="Client\Out\ClientListOutVM.cs" />
     <Compile Include="Client\Out\ClientOutVM.cs" />
     <Compile Include="Common\ResultServiceVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

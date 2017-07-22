@@ -40,10 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client\ClientApp.cs" />
+    <Compile Include="Client\IClientApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Client\" />
+    <ProjectReference Include="..\cqrs-angular2-nosql.Domain\cqrs-angular2-nosql.Domain.csproj">
+      <Project>{9240505D-D32E-42B2-9E07-4ACAD363748A}</Project>
+      <Name>cqrs-angular2-nosql.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cqrs-angular2-nosql.VM\cqrs-angular2-nosql.VM.csproj">
+      <Project>{3C7980F4-1433-4566-B671-23785F4C697F}</Project>
+      <Name>cqrs-angular2-nosql.VM</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -254,6 +254,16 @@
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cqrs-angular2-nosql.Application\cqrs-angular2-nosql.Application.csproj">
+      <Project>{DA61E706-849C-42E5-A9A7-F888A97B1442}</Project>
+      <Name>cqrs-angular2-nosql.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\cqrs-angular2-nosql.VM\cqrs-angular2-nosql.VM.csproj">
+      <Project>{3C7980F4-1433-4566-B671-23785F4C697F}</Project>
+      <Name>cqrs-angular2-nosql.VM</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
