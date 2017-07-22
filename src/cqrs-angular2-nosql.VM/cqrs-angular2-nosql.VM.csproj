@@ -43,12 +43,16 @@
     <Compile Include="Client\In\ClientInsertInVM.cs" />
     <Compile Include="Client\In\ClientUpdateInVM.cs" />
     <Compile Include="Client\Out\ClientListOutVM.cs" />
-    <Compile Include="Client\Out\ClientOutVM.cs" />
+    <Compile Include="Client\Out\ClientDetailOutVM.cs" />
+    <Compile Include="Common\ResultServiceDataVM.cs" />
     <Compile Include="Common\ResultServiceVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Client\Models\" />
+    <ProjectReference Include="..\cqrs-angular2-nosql.Util\cqrs-angular2-nosql.Util.csproj">
+      <Project>{A1DBDD48-0D42-4887-9C04-623A636C51D0}</Project>
+      <Name>cqrs-angular2-nosql.Util</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -16,18 +16,14 @@ namespace cqrs_angular2_nosql.Application
             _clientService = clientService;
         }
 
-        public Task<ClientOutVM> GetAll()
+        public async Task<ResultServiceDataVM<ClientListOutVM>> GetAll()
         {
-            ClientOutVM clientOutVM = new ClientOutVM();
-
-            var clients = _clientService.GetAllAsync();
-
-            throw new NotImplementedException();
+            return new ResultServiceDataVM<ClientListOutVM>().SetData(await _clientService.GetAllAsync());
         }
 
-        public Task<ClientOutVM> Get(Guid id)
+        public async Task<ResultServiceDataVM<ClientDetailOutVM>> Get(Guid id)
         {
-            throw new NotImplementedException();
+            return new ResultServiceDataVM<ClientDetailOutVM>().SetData(await _clientService.FindByIdAsync(id.ToString()));
         }
 
         public ResultServiceVM Post(ClientInsertInVM clientInsertInVM)

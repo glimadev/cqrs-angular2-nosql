@@ -18,13 +18,13 @@ namespace cqrs_angular2_nosql.Controllers
         }
 
         // GET api/values
-        public async Task<ClientOutVM> GetAll()
+        public async Task<ResultServiceDataVM<ClientListOutVM>> GetAll()
         {
             return await _clientApp.GetAll();
         }
 
         // GET api/values/5
-        public async Task<ClientOutVM> Get(Guid id)
+        public async Task<ResultServiceDataVM<ClientDetailOutVM>> Get(Guid id)
         {
             return await _clientApp.Get(id);
         }

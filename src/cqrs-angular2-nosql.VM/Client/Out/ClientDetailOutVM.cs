@@ -1,7 +1,6 @@
 ﻿namespace cqrs_angular2_nosql.VM.Out
 {
-    public class ClientListOutVM
+    public class ClientDetailOutVM
     {
-
     }
 }

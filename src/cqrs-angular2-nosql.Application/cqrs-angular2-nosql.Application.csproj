@@ -49,6 +49,10 @@
       <Project>{9240505D-D32E-42B2-9E07-4ACAD363748A}</Project>
       <Name>cqrs-angular2-nosql.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\cqrs-angular2-nosql.Util\cqrs-angular2-nosql.Util.csproj">
+      <Project>{A1DBDD48-0D42-4887-9C04-623A636C51D0}</Project>
+      <Name>cqrs-angular2-nosql.Util</Name>
+    </ProjectReference>
     <ProjectReference Include="..\cqrs-angular2-nosql.VM\cqrs-angular2-nosql.VM.csproj">
       <Project>{3C7980F4-1433-4566-B671-23785F4C697F}</Project>
       <Name>cqrs-angular2-nosql.VM</Name>

@@ -9,8 +9,8 @@ namespace cqrs_angular2_nosql.Application
     public interface IClientApp
     {
         //Async
-        Task<ClientOutVM> GetAll();
-        Task<ClientOutVM> Get(Guid id);
+        Task<ResultServiceDataVM<ClientListOutVM>> GetAll();
+        Task<ResultServiceDataVM<ClientDetailOutVM>> Get(Guid id);
 
         //Sync
         ResultServiceVM Delete(Guid id);
