@@ -18,6 +18,10 @@ namespace cqrs_angular2_nosql.Application
 
         public Task<ClientOutVM> GetAll()
         {
+            ClientOutVM clientOutVM = new ClientOutVM();
+
+            var clients = _clientService.GetAllAsync();
+
             throw new NotImplementedException();
         }
 
