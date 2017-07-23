@@ -46,10 +46,13 @@
   <ItemGroup>
     <Compile Include="Bus\IBus.cs" />
     <Compile Include="Commands\Command.cs" />
+    <Compile Include="Events\Event.cs" />
     <Compile Include="Events\IHandler.cs" />
     <Compile Include="Events\Message.cs" />
     <Compile Include="Models\EntityBase.cs" />
     <Compile Include="Models\IEntityBase.cs" />
+    <Compile Include="Notifications\DomainNotification.cs" />
+    <Compile Include="Notifications\DomainNotificationHandler.cs" />
     <Compile Include="Notifications\IDomainNotificationHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

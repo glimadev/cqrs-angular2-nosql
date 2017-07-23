@@ -28,6 +28,11 @@ namespace cqrs_angular2_nosql.Infra.Bus
             ((IHandler<T>)obj).Handle(message);
         }
 
+        public void RaiseEvent<T>(T theEvent) where T : Event
+        {
+            Publish(theEvent);
+        }
+
         private object GetService(Type serviceType)
         {
             return Container.GetService(serviceType);

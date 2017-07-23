@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentValidation, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentValidation.7.1.0\lib\net45\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Azure.Documents.Client">
       <HintPath>..\packages\Microsoft.Azure.DocumentDB.1.15.0\lib\net45\Microsoft.Azure.Documents.Client.dll</HintPath>
     </Reference>
@@ -43,8 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client\Service\ClientService.cs" />
-    <Compile Include="Client\Service\IClientService.cs" />
+    <Compile Include="Commands\Client\ClientCommand.cs" />
+    <Compile Include="Commands\Client\Handlers\ClientCommandHandler.cs" />
+    <Compile Include="Commands\Client\RegisterClientCommand.cs" />
+    <Compile Include="Commands\Client\Service\ClientService.cs" />
+    <Compile Include="Commands\Client\Service\IClientService.cs" />
+    <Compile Include="Commands\Client\Validations\RegisterClientCommandValidation.cs" />
+    <Compile Include="Handlers\CommandHandler.cs" />
     <Compile Include="Interfaces\IClientRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Models\Client.cs" />
@@ -53,8 +62,6 @@
     <Compile Include="Service\ServiceBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Client\In\" />
-    <Folder Include="Client\Out\" />
     <Folder Include="Common\" />
   </ItemGroup>
   <ItemGroup>

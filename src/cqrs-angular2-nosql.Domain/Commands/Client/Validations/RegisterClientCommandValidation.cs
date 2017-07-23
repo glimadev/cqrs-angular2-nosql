@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace cqrs_angular2_nosql.Domain.Commands.Client.Validations
+namespace cqrs_angular2_nosql.Domain.Commands.Validations
 {
     public class RegisterClientCommandValidation : AbstractValidator<RegisterClientCommand>
     {

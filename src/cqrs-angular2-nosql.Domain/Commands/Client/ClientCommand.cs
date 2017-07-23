@@ -1,7 +1,7 @@
 ﻿using cqrs_angular2_nosql.Domain.Core.Commands;
 using System;
 
-namespace cqrs_angular2_nosql.Domain.Commands.Client
+namespace cqrs_angular2_nosql.Domain.Commands
 {
     public abstract class ClientCommand : Command
     {

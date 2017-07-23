@@ -1,5 +1,5 @@
-﻿using cqrs_angular2_nosql.Domain.Commands.Client;
-using cqrs_angular2_nosql.Domain.Commands.Client.Validations;
+﻿
+using cqrs_angular2_nosql.Domain.Commands.Validations;
 using FluentValidation.Results;
 
 namespace cqrs_angular2_nosql.Domain.Commands
