@@ -9,6 +9,7 @@ namespace cqrs_angular2_nosql.Infra.Bus
     public sealed class InMemoryBus : IBus
     {
         public static Func<IServiceProvider> ContainerAccessor { get; set; }
+
         private static IServiceProvider Container => ContainerAccessor();
 
         public void SendCommand<T>(T theCommand) where T : Command

@@ -1,4 +1,6 @@
-﻿using cqrs_angular2_nosql.Domain.Service;
+﻿using cqrs_angular2_nosql.Domain.Commands;
+using cqrs_angular2_nosql.Domain.Service;
+using cqrs_angular2_nosql.Util.MapperUtils;
 using cqrs_angular2_nosql.VM.Common;
 using cqrs_angular2_nosql.VM.In;
 using cqrs_angular2_nosql.VM.Out;
@@ -28,7 +30,14 @@ namespace cqrs_angular2_nosql.Application
 
         public ResultServiceVM Post(ClientInsertInVM clientInsertInVM)
         {
-            throw new NotImplementedException();
+            ResultServiceVM resultServiceVM = new ResultServiceVM();
+
+            _clientService.Register(Mapper.Map<RegisterClientCommand>(clientInsertInVM));
+
+            //if (IsValidOperation())
+            resultServiceVM.SuccessMessage = "Cliente Cadastrado!";
+
+            return resultServiceVM;
         }
 
         public ResultServiceVM Put(Guid id, ClientUpdateInVM clientUpdateInVM)
