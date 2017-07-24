@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using cqrs_angular2_nosql.Domain.Models;
+using cqrs_angular2_nosql.Domain.Commands;
 using cqrs_angular2_nosql.VM.In;
 
 namespace cqrs_angular2_nosql.AutoMapper
@@ -8,7 +8,7 @@ namespace cqrs_angular2_nosql.AutoMapper
     {
         protected override void Configure()
         {
-            Mapper.CreateMap<ClientInsertInVM, Client>();
+            Mapper.CreateMap<ClientInsertInVM, RegisterClientCommand>();
         }
     }
 }

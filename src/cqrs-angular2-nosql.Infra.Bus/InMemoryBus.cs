@@ -2,45 +2,35 @@
 using cqrs_angular2_nosql.Domain.Core.Commands;
 using cqrs_angular2_nosql.Domain.Core.Events;
 using cqrs_angular2_nosql.Domain.Core.Notifications;
-using System;
+using cqrs_angular2_nosql.Infra.IoContainer;
+using SimpleInjector;
+using System.Threading.Tasks;
 
 namespace cqrs_angular2_nosql.Infra.Bus
 {
     public sealed class InMemoryBus : IBus
     {
-        public static Func<IServiceProvider> ContainerAccessor { get; set; }
+        private static Container Container = StContainer.container;
 
-        private static IServiceProvider Container => ContainerAccessor();
-
-        public void SendCommand<T>(T theCommand) where T : Command
+        public async Task SendCommand<T>(T theCommand) where T : Command
         {
-            Publish(theCommand);
+            await Publish(theCommand);
         }
 
-        private static void Publish<T>(T message) where T : Message
+        private static async Task Publish<T>(T message) where T : Message
         {
             if (Container == null) return;
 
-            var obj = Container.GetService(message.MessageType.Equals("DomainNotification")
+            var obj = Container.GetInstance(message.MessageType.Equals("DomainNotification")
                 ? typeof(IDomainNotificationHandler<T>)
                 : typeof(IHandler<T>));
 
-            ((IHandler<T>)obj).Handle(message);
+            await ((IHandler<T>)obj).Handle(message);
         }
 
-        public void RaiseEvent<T>(T theEvent) where T : Event
+        public async Task RaiseEvent<T>(T theEvent) where T : Event
         {
-            Publish(theEvent);
-        }
-
-        private object GetService(Type serviceType)
-        {
-            return Container.GetService(serviceType);
-        }
-
-        private T GetService<T>()
-        {
-            return (T)Container.GetService(typeof(T));
+            await Publish(theEvent);
         }
     }
 }

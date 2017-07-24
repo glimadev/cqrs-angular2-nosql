@@ -45,6 +45,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\cqrs-angular2-nosql.Domain.Core\cqrs-angular2-nosql.Domain.Core.csproj">
+      <Project>{2AF384F4-F2B5-4A85-82FF-3599AEAE3B08}</Project>
+      <Name>cqrs-angular2-nosql.Domain.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\cqrs-angular2-nosql.Domain\cqrs-angular2-nosql.Domain.csproj">
       <Project>{9240505D-D32E-42B2-9E07-4ACAD363748A}</Project>
       <Name>cqrs-angular2-nosql.Domain</Name>

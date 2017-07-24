@@ -1,7 +1,9 @@
-﻿namespace cqrs_angular2_nosql.Domain.Core.Events
+﻿using System.Threading.Tasks;
+
+namespace cqrs_angular2_nosql.Domain.Core.Events
 {
     public interface IHandler<in T> where T : Message
     {
-        void Handle(T message);
+        Task Handle(T message);
     }
 }

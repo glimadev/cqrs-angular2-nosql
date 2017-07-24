@@ -3,6 +3,7 @@ using cqrs_angular2_nosql.VM.Common;
 using cqrs_angular2_nosql.VM.In;
 using cqrs_angular2_nosql.VM.Out;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -18,7 +19,7 @@ namespace cqrs_angular2_nosql.Controllers
         }
 
         // GET api/values
-        public async Task<ResultServiceDataVM<ClientListOutVM>> GetAll()
+        public async Task<ResultServiceDataVM<List<ClientListOutVM>>> GetAll()
         {
             return await _clientApp.GetAll();
         }
@@ -30,19 +31,19 @@ namespace cqrs_angular2_nosql.Controllers
         }
 
         // POST api/values
-        public ResultServiceVM Post(ClientInsertInVM clientInsertInVM)
+        public async Task<ResultServiceVM> Post(ClientInsertInVM clientInsertInVM)
         {
-            return _clientApp.Post(clientInsertInVM);
+            return await _clientApp.Post(clientInsertInVM);
         }
 
         // PUT api/values/5
-        public ResultServiceVM Put(Guid id, ClientUpdateInVM clientUpdateInVM)
+        public async Task<ResultServiceVM> Put(Guid id, ClientUpdateInVM clientUpdateInVM)
         {
             return _clientApp.Put(id, clientUpdateInVM);
         }
 
         // DELETE api/values/5
-        public ResultServiceVM Delete(Guid id)
+        public async Task<ResultServiceVM> Delete(Guid id)
         {
             return _clientApp.Delete(id);
         }

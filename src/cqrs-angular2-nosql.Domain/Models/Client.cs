@@ -4,12 +4,13 @@ namespace cqrs_angular2_nosql.Domain.Models
 {
     public class Client : EntityBase
     {
-        public Client(string name)
+        public Client(string name, string email)
         {
-            this.Name = name;
+            Name = name;
+            Email = email;
         }
 
         public string Name { get; private set; }
-        public string Email { get; internal set; }
+        public string Email { get; private set; }
     }
 }

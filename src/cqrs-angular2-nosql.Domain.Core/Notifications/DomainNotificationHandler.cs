@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace cqrs_angular2_nosql.Domain.Core.Notifications
 {
@@ -12,7 +13,7 @@ namespace cqrs_angular2_nosql.Domain.Core.Notifications
             _notifications = new List<DomainNotification>();
         }
 
-        public void Handle(DomainNotification message)
+        public async Task Handle(DomainNotification message)
         {
             _notifications.Add(message);
         }
@@ -20,6 +21,11 @@ namespace cqrs_angular2_nosql.Domain.Core.Notifications
         public List<DomainNotification> GetNotifications()
         {
             return _notifications;
+        }
+
+        public IEnumerable<string> GetNotificationsMessages()
+        {
+            return _notifications.Select(x => x.Value).ToArray();
         }
 
         public bool HasNotifications()

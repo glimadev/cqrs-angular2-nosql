@@ -7,5 +7,6 @@ namespace cqrs_angular2_nosql.Domain.Core.Notifications
     {
         bool HasNotifications();
         List<T> GetNotifications();
+        IEnumerable<string> GetNotificationsMessages();
     }
 }

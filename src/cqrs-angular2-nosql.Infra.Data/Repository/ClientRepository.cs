@@ -5,8 +5,8 @@ namespace cqrs_angular2_nosql.Infra.Data.Repository
 {
     public class ClientRepository : Repository<Client>, IClientRepository
     {
-        public ClientRepository(string collectionName = "ClientCollection")
-            : base(collectionName)
+        public ClientRepository()
+            : base("ClientCollection")
         {
         }
     }

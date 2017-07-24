@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace cqrs_angular2_nosql.Domain.Service
 {
-    public abstract class ServiceBase<TEntity> : IServiceBase<TEntity> where TEntity : class, IEntityBase
+    public class ServiceBase<TEntity> : IServiceBase<TEntity> where TEntity : class, IEntityBase
     {
         readonly IRepository<TEntity> _repository;
 
-        protected ServiceBase(IRepository<TEntity> repository)
+        public ServiceBase(IRepository<TEntity> repository)
         {
             _repository = repository;
         }

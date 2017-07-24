@@ -4,6 +4,7 @@ using cqrs_angular2_nosql.Domain.Core.Notifications;
 using cqrs_angular2_nosql.Domain.Handlers;
 using cqrs_angular2_nosql.Domain.Interfaces;
 using cqrs_angular2_nosql.Domain.Models;
+using System.Threading.Tasks;
 
 namespace cqrs_angular2_nosql.Domain.Commands.Handlers
 {
@@ -23,7 +24,7 @@ namespace cqrs_angular2_nosql.Domain.Commands.Handlers
             Bus = bus;
         }
 
-        public void Handle(RegisterClientCommand message)
+        public async Task Handle(RegisterClientCommand message)
         {
             if (!message.IsValid())
             {
@@ -31,15 +32,16 @@ namespace cqrs_angular2_nosql.Domain.Commands.Handlers
                 return;
             }
 
-            var client = new Client(message.Name);
+            var client = new Client(message.Name, message.Email);
 
-            if (_clientRepository.FirstOrDefaultAsync(c => c.Email == client.Email) != null)
+            if ((await _clientRepository.FirstOrDefaultAsync(c => c.Email == client.Email)) != null)
             {
-                Bus.RaiseEvent(new DomainNotification(message.MessageType, "O e-mail desse cliente já foi cadastrado."));
+                await Bus.RaiseEvent(new DomainNotification(message.MessageType, "O e-mail desse cliente já foi cadastrado."));
+
                 return;
             }
 
-            _clientRepository.AddOrUpdateAsync(client);
+            await _clientRepository.AddOrUpdateAsync(client);
         }
 
         public void Dispose()

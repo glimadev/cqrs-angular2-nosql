@@ -2,22 +2,22 @@
 
 namespace cqrs_angular2_nosql.Areas.API
 {
-    public class APIAreaRegistration : AreaRegistration 
+    public class APIAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
+            get
             {
                 return "API";
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                 "API_default",
-                "API/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                "api/{controller}/{action}/{id}",
+                new { id = UrlParameter.Optional }
             );
         }
     }

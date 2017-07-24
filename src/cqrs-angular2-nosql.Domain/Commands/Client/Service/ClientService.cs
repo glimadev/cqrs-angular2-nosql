@@ -2,6 +2,7 @@
 using cqrs_angular2_nosql.Domain.Core.Bus;
 using cqrs_angular2_nosql.Domain.Interfaces;
 using cqrs_angular2_nosql.Domain.Models;
+using System.Threading.Tasks;
 
 namespace cqrs_angular2_nosql.Domain.Service
 {
@@ -15,9 +16,9 @@ namespace cqrs_angular2_nosql.Domain.Service
             _bus = bus;
         }
 
-        public void Register(RegisterClientCommand registerClientCommand)
+        public async Task Register(RegisterClientCommand registerClientCommand)
         {
-            _bus.SendCommand(registerClientCommand);
+            await _bus.SendCommand(registerClientCommand);
         }
     }
 }

@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cqrs-angular2-nosql.Domain.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cqrs-angular2-nosql.Infra.Bus", "cqrs-angular2-nosql.Infra.Bus\cqrs-angular2-nosql.Infra.Bus.csproj", "{EBB578F4-8251-442F-91FF-8982E39F03BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cqrs-angular2-nosql.Infra.IoContainer", "cqrs-angular2-nosql.Infra.Container\cqrs-angular2-nosql.Infra.IoContainer.csproj", "{023950BB-15BB-4C92-9D49-4159B4E172F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{EBB578F4-8251-442F-91FF-8982E39F03BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBB578F4-8251-442F-91FF-8982E39F03BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBB578F4-8251-442F-91FF-8982E39F03BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{023950BB-15BB-4C92-9D49-4159B4E172F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{023950BB-15BB-4C92-9D49-4159B4E172F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{023950BB-15BB-4C92-9D49-4159B4E172F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{023950BB-15BB-4C92-9D49-4159B4E172F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,5 +99,6 @@ Global
 		{A1DBDD48-0D42-4887-9C04-623A636C51D0} = {58B19B1D-9E46-475B-BE97-A25FA8148AA4}
 		{2AF384F4-F2B5-4A85-82FF-3599AEAE3B08} = {A273C321-81E9-4DCF-9685-B3C492B14330}
 		{EBB578F4-8251-442F-91FF-8982E39F03BA} = {BC5843DC-405C-4472-A039-F5C274C16D17}
+		{023950BB-15BB-4C92-9D49-4159B4E172F5} = {BC5843DC-405C-4472-A039-F5C274C16D17}
 	EndGlobalSection
 EndGlobal

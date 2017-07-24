@@ -2,7 +2,7 @@
 {
     public interface IEntityBase
     {
-        string Id { get; set; }
+        string id { get; set; }
         bool Actived { get; set; }
         string DateCreated { get; set; }
         string DateEdited { get; set; }

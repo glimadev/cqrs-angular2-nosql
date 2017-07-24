@@ -6,7 +6,7 @@ namespace cqrs_angular2_nosql.Domain.Commands
     public abstract class ClientCommand : Command
     {
         public Guid Id { get; protected set; }
-
         public string Name { get; protected set; }
+        public string Email { get; protected set; }
     }
 }

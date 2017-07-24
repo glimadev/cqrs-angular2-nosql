@@ -2,7 +2,7 @@
 {
     public class EntityBase : IEntityBase
     {
-        public string Id { get; set; }
+        public string id { get; set; }
         public bool Actived { get; set; }
         public string DateCreated { get; set; }
         public string DateEdited { get; set; }

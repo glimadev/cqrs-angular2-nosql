@@ -18,16 +18,15 @@ namespace cqrs_angular2_nosql.Infra.Data.Repository
 {
     public class Repository<T> : IRepository<T> where T : class, IEntityBase
     {
-        private readonly DocumentClient _client;
-        private readonly string _databaseId;
+        private DocumentClient _client;
+        private string _databaseId;
 
-        private readonly AsyncLazy<Database> _database;
+        private AsyncLazy<Database> _database;
         private AsyncLazy<DocumentCollection> _collection;
 
-        private readonly string _collectionName;
-
-        private readonly string _repositoryIdentityProperty = "id";
-        private readonly string _defaultIdentityPropertyName = "id";
+        private string _collectionName;
+        private string _repositoryIdentityProperty = "id";
+        private string _defaultIdentityPropertyName = "id";
 
         public Repository(string collectionName, string databaseId = null, Expression<Func<T, object>> idNameFactory = null)
         {
@@ -82,7 +81,7 @@ namespace cqrs_angular2_nosql.Infra.Data.Repository
 
             entity.Actived = true;
 
-            if (string.IsNullOrEmpty(entity.Id))
+            if (string.IsNullOrEmpty(entity.id))
             {
                 entity.DateCreated = DateTime.Now.ToString();
             }
@@ -207,7 +206,8 @@ namespace cqrs_angular2_nosql.Infra.Data.Repository
 
         public void Dispose()
         {
-            _client.Dispose();
+            if (_client != null)
+                _client.Dispose();
 
             GC.SuppressFinalize(this);
         }

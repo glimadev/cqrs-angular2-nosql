@@ -1,8 +1,8 @@
+using cqrs_angular2_nosql.Areas.HelpPage.ModelDescriptions;
+using cqrs_angular2_nosql.Areas.HelpPage.Models;
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using cqrs_angular2_nosql.Areas.HelpPage.ModelDescriptions;
-using cqrs_angular2_nosql.Areas.HelpPage.Models;
 
 namespace cqrs_angular2_nosql.Areas.HelpPage.Controllers
 {
@@ -18,7 +18,7 @@ namespace cqrs_angular2_nosql.Areas.HelpPage.Controllers
         {
         }
 
-        public HelpController(HttpConfiguration config)
+        protected HelpController(HttpConfiguration config)
         {
             Configuration = config;
         }
