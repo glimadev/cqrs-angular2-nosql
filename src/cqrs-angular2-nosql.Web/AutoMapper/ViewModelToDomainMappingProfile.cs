@@ -9,6 +9,7 @@ namespace cqrs_angular2_nosql.AutoMapper
         protected override void Configure()
         {
             Mapper.CreateMap<ClientInsertInVM, RegisterClientCommand>();
+            Mapper.CreateMap<ClientUpdateInVM, UpdateClientCommand>();
         }
     }
 }

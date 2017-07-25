@@ -48,7 +48,7 @@ namespace cqrs_angular2_nosql.Application
             return resultServiceVM;
         }
 
-        public async Task<ResultServiceVM> Put(Guid id, ClientUpdateInVM clientUpdateInVM)
+        public async Task<ResultServiceVM> Update(ClientUpdateInVM clientUpdateInVM)
         {
             ResultServiceVM resultServiceVM = new ResultServiceVM();
 

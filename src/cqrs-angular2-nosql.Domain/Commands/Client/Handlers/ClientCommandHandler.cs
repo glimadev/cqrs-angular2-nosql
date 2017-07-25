@@ -4,6 +4,7 @@ using cqrs_angular2_nosql.Domain.Core.Notifications;
 using cqrs_angular2_nosql.Domain.Handlers;
 using cqrs_angular2_nosql.Domain.Interfaces;
 using cqrs_angular2_nosql.Domain.Models;
+using System;
 using System.Threading.Tasks;
 
 namespace cqrs_angular2_nosql.Domain.Commands.Handlers
@@ -34,7 +35,9 @@ namespace cqrs_angular2_nosql.Domain.Commands.Handlers
                 return;
             }
 
-            var client = new Client(message.Name, message.Email);
+            var client = new Client(Guid.NewGuid().ToString(), message.Name, message.Email);
+
+            var asd = await _clientRepository.FirstOrDefaultAsync(c => c.Email == client.Email);
 
             if ((await _clientRepository.FirstOrDefaultAsync(c => c.Email == client.Email)) != null)
             {
@@ -54,9 +57,9 @@ namespace cqrs_angular2_nosql.Domain.Commands.Handlers
                 return;
             }
 
-            var client = new Client(message.Id, message.Name, message.Email);
+            var client = new Client(message.Id.ToString(), message.Name, message.Email);
 
-            var existing = await _clientRepository.GetByIdAsync(message.Email);
+            var existing = await _clientRepository.FirstOrDefaultAsync(c => c.Email == message.Email);
 
             if (existing != null && (existing.id != client.id))
             {

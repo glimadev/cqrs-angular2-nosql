@@ -25,17 +25,29 @@ namespace cqrs_angular2_nosql.Infra.IoC
 
             IocHelper.AutoMap(container, typeof(IClientService).Assembly, Lifestyle.Scoped);
             IocHelper.AutoMap(container, typeof(IClientApp).Assembly, Lifestyle.Scoped);
-            IocHelper.AutoMap(container, typeof(IClientRepository).Assembly, Lifestyle.Scoped);
 
             container.Register(typeof(IBus), typeof(InMemoryBus), new WebRequestLifestyle());
             //container.Register(typeof(IRepository<>), typeof(Repository<>), Lifestyle.Scoped);
             container.Register(typeof(IServiceBase<>), typeof(ServiceBase<>), new WebRequestLifestyle());
-            container.Register(typeof(IDomainNotificationHandler<>), typeof(DomainNotificationHandler), new WebRequestLifestyle());
+            //container.Register(typeof(IHandler<>), new[] { typeof(IHandler<>).Assembly }, new WebRequestLifestyle());
+
+            var registration = Lifestyle.Scoped.CreateRegistration<ClientCommandHandler>(container);
+            container.AddRegistration(typeof(IHandler<RegisterClientCommand>), registration);
+            container.AddRegistration(typeof(IHandler<UpdateClientCommand>), registration);
+            container.AddRegistration(typeof(IHandler<RemoveClientCommand>), registration);
+
+            container.Register<IDomainNotificationHandler<DomainNotification>, DomainNotificationHandler>(Lifestyle.Scoped);
             //.Register(typeof(IHandler<>), typeof(CommandHandler), new WebRequestLifestyle());
 
             container.Register<IClientRepository, ClientRepository>(new WebRequestLifestyle());
-            container.Register<IHandler<RegisterClientCommand>, ClientCommandHandler>(new WebRequestLifestyle());
+            //container.Register<IHandler<RegisterClientCommand>, ClientCommandHandler>(new WebRequestLifestyle());
+            //container.Register<IHandler<UpdateClientCommand>, ClientCommandHandler>(new WebRequestLifestyle());
+            //container.Register<IHandler<RemoveClientCommand>, ClientCommandHandler>(new WebRequestLifestyle());
             container.Register<IRepository<Client>>(() => new Repository<Client>("ClientCollection"), Lifestyle.Scoped);
+
+            //    container.Re(
+            //typeof(ICommandHandler<>),
+            //typeof(ICommandHandler<>).Assembly);
 
             #endregion
 
