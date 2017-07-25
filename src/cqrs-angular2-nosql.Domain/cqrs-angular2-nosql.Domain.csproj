@@ -49,10 +49,14 @@
   <ItemGroup>
     <Compile Include="Commands\Client\ClientCommand.cs" />
     <Compile Include="Commands\Client\Handlers\ClientCommandHandler.cs" />
+    <Compile Include="Commands\Client\RemoveClientCommand.cs" />
+    <Compile Include="Commands\Client\UpdateClientCommand.cs" />
     <Compile Include="Commands\Client\RegisterClientCommand.cs" />
     <Compile Include="Commands\Client\Service\ClientService.cs" />
     <Compile Include="Commands\Client\Service\IClientService.cs" />
+    <Compile Include="Commands\Client\Validations\UpdateClientCommandValidation.cs" />
     <Compile Include="Commands\Client\Validations\RegisterClientCommandValidation.cs" />
+    <Compile Include="Commands\Client\Validations\RemoveClientCommandValidation.cs" />
     <Compile Include="Handlers\CommandHandler.cs" />
     <Compile Include="Interfaces\IClientRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />

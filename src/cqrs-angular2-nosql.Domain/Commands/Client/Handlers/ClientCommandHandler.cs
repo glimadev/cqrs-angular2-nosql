@@ -9,10 +9,12 @@ using System.Threading.Tasks;
 namespace cqrs_angular2_nosql.Domain.Commands.Handlers
 {
     public class ClientCommandHandler : CommandHandler,
-        IHandler<RegisterClientCommand>
+        IHandler<RegisterClientCommand>,
+        IHandler<UpdateClientCommand>,
+        IHandler<RemoveClientCommand>
     {
         private readonly IClientRepository _clientRepository;
-        private readonly IBus Bus;
+        private readonly IBus _bus;
 
         public ClientCommandHandler(
             IClientRepository clientRepository,
@@ -21,7 +23,7 @@ namespace cqrs_angular2_nosql.Domain.Commands.Handlers
             : base(bus, notifications)
         {
             _clientRepository = clientRepository;
-            Bus = bus;
+            _bus = bus;
         }
 
         public async Task Handle(RegisterClientCommand message)
@@ -36,12 +38,46 @@ namespace cqrs_angular2_nosql.Domain.Commands.Handlers
 
             if ((await _clientRepository.FirstOrDefaultAsync(c => c.Email == client.Email)) != null)
             {
-                await Bus.RaiseEvent(new DomainNotification(message.MessageType, "O e-mail desse cliente já foi cadastrado."));
+                await _bus.RaiseEvent(new DomainNotification(message.MessageType, "O e-mail desse cliente já foi cadastrado."));
 
                 return;
             }
 
             await _clientRepository.AddOrUpdateAsync(client);
+        }
+
+        public async Task Handle(UpdateClientCommand message)
+        {
+            if (!message.IsValid())
+            {
+                NotifyValidationErrors(message);
+                return;
+            }
+
+            var client = new Client(message.Id, message.Name, message.Email);
+
+            var existing = await _clientRepository.GetByIdAsync(message.Email);
+
+            if (existing != null && (existing.id != client.id))
+            {
+                await _bus.RaiseEvent(new DomainNotification(message.MessageType, "O e-mail desse cliente já foi cadastrado."));
+
+                return;
+            }
+
+            await _clientRepository.AddOrUpdateAsync(client);
+        }
+
+        public async Task Handle(RemoveClientCommand message)
+        {
+            if (!message.IsValid())
+            {
+                NotifyValidationErrors(message);
+
+                return;
+            }
+
+            await _clientRepository.DeleteLogicAsync(message.Id.ToString());
         }
 
         public void Dispose()

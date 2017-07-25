@@ -13,7 +13,7 @@ namespace cqrs_angular2_nosql.Application
         Task<ResultServiceDataVM<ClientDetailOutVM>> Get(Guid id);
 
         Task<ResultServiceVM> Post(ClientInsertInVM clientInsertInVM);
-        ResultServiceVM Put(Guid id, ClientUpdateInVM clientUpdateInVM);
-        ResultServiceVM Delete(Guid id);
+        Task<ResultServiceVM> Put(Guid id, ClientUpdateInVM clientUpdateInVM);
+        Task<ResultServiceVM> Delete(Guid id);
     }
 }

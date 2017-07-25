@@ -20,5 +20,15 @@ namespace cqrs_angular2_nosql.Domain.Service
         {
             await _bus.SendCommand(registerClientCommand);
         }
+
+        public async Task Update(UpdateClientCommand updateClientCommand)
+        {
+            await _bus.SendCommand(updateClientCommand);
+        }
+
+        public async Task Remove(RemoveClientCommand removeClientCommand)
+        {
+            await _bus.SendCommand(removeClientCommand);
+        }
     }
 }

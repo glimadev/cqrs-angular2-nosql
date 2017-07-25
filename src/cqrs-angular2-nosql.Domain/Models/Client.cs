@@ -1,4 +1,5 @@
 ﻿using cqrs_angular2_nosql.Domain.Core.Models;
+using System;
 
 namespace cqrs_angular2_nosql.Domain.Models
 {
@@ -6,6 +7,13 @@ namespace cqrs_angular2_nosql.Domain.Models
     {
         public Client(string name, string email)
         {
+            Name = name;
+            Email = email;
+        }
+
+        public Client(Guid gid, string name, string email)
+        {
+            id = gid.ToString();
             Name = name;
             Email = email;
         }
