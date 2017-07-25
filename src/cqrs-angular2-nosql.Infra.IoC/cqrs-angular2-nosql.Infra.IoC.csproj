@@ -113,9 +113,9 @@
       <Project>{EBB578F4-8251-442F-91FF-8982E39F03BA}</Project>
       <Name>cqrs-angular2-nosql.Infra.Bus</Name>
     </ProjectReference>
-    <ProjectReference Include="..\cqrs-angular2-nosql.Infra.Container\cqrs-angular2-nosql.Infra.IoContainer.csproj">
+    <ProjectReference Include="..\cqrs-angular2-nosql.Infra.Container\cqrs-angular2-nosql.Infra.ContainerHandler.csproj">
       <Project>{023950bb-15bb-4c92-9d49-4159b4e172f5}</Project>
-      <Name>cqrs-angular2-nosql.Infra.IoContainer</Name>
+      <Name>cqrs-angular2-nosql.Infra.ContainerHandler</Name>
     </ProjectReference>
     <ProjectReference Include="..\cqrs-angular2-nosql.Infra.Data\cqrs-angular2-nosql.Infra.Data.csproj">
       <Project>{32EB4DF6-0D0D-444D-A949-EE55CB6E6FA8}</Project>

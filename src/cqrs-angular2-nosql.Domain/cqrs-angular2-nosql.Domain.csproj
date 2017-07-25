@@ -65,9 +65,7 @@
     <Compile Include="Service\IServiceBase.cs" />
     <Compile Include="Service\ServiceBase.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Common\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\cqrs-angular2-nosql.Domain.Core\cqrs-angular2-nosql.Domain.Core.csproj">
       <Project>{2AF384F4-F2B5-4A85-82FF-3599AEAE3B08}</Project>

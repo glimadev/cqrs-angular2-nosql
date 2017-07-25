@@ -56,7 +56,7 @@ namespace cqrs_angular2_nosql.Infra.IoC
 
         public static void SetContainer(Container container)
         {
-            IoContainer.StContainer.container = container;
+            ContainerHandler.ContainerHandler.container = container;
         }
     }
 

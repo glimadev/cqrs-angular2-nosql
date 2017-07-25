@@ -2,7 +2,6 @@
 using cqrs_angular2_nosql.Domain.Core.Commands;
 using cqrs_angular2_nosql.Domain.Core.Events;
 using cqrs_angular2_nosql.Domain.Core.Notifications;
-using cqrs_angular2_nosql.Infra.IoContainer;
 using SimpleInjector;
 using System.Threading.Tasks;
 
@@ -10,7 +9,7 @@ namespace cqrs_angular2_nosql.Infra.Bus
 {
     public sealed class InMemoryBus : IBus
     {
-        private static Container Container = StContainer.container;
+        private static Container Container = ContainerHandler.ContainerHandler.container;
 
         public async Task SendCommand<T>(T theCommand) where T : Command
         {

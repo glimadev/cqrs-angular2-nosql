@@ -51,9 +51,9 @@
       <Project>{2AF384F4-F2B5-4A85-82FF-3599AEAE3B08}</Project>
       <Name>cqrs-angular2-nosql.Domain.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\cqrs-angular2-nosql.Infra.Container\cqrs-angular2-nosql.Infra.IoContainer.csproj">
+    <ProjectReference Include="..\cqrs-angular2-nosql.Infra.Container\cqrs-angular2-nosql.Infra.ContainerHandler.csproj">
       <Project>{023950BB-15BB-4C92-9D49-4159B4E172F5}</Project>
-      <Name>cqrs-angular2-nosql.Infra.IoContainer</Name>
+      <Name>cqrs-angular2-nosql.Infra.ContainerHandler</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

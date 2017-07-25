@@ -37,8 +37,6 @@ namespace cqrs_angular2_nosql.Domain.Commands.Handlers
 
             var client = new Client(Guid.NewGuid().ToString(), message.Name, message.Email);
 
-            var asd = await _clientRepository.FirstOrDefaultAsync(c => c.Email == client.Email);
-
             if ((await _clientRepository.FirstOrDefaultAsync(c => c.Email == client.Email)) != null)
             {
                 await _bus.RaiseEvent(new DomainNotification(message.MessageType, "O e-mail desse cliente já foi cadastrado."));

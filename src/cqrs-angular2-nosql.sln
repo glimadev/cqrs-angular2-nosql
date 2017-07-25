@@ -35,7 +35,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cqrs-angular2-nosql.Domain.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cqrs-angular2-nosql.Infra.Bus", "cqrs-angular2-nosql.Infra.Bus\cqrs-angular2-nosql.Infra.Bus.csproj", "{EBB578F4-8251-442F-91FF-8982E39F03BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cqrs-angular2-nosql.Infra.IoContainer", "cqrs-angular2-nosql.Infra.Container\cqrs-angular2-nosql.Infra.IoContainer.csproj", "{023950BB-15BB-4C92-9D49-4159B4E172F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cqrs-angular2-nosql.Infra.ContainerHandler", "cqrs-angular2-nosql.Infra.Container\cqrs-angular2-nosql.Infra.ContainerHandler.csproj", "{023950BB-15BB-4C92-9D49-4159B4E172F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
