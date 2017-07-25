@@ -48,11 +48,15 @@ namespace cqrs_angular2_nosql.Application
             return resultServiceVM;
         }
 
-        public async Task<ResultServiceVM> Update(ClientUpdateInVM clientUpdateInVM)
+        public async Task<ResultServiceVM> Put(Guid id, ClientUpdateInVM clientUpdateInVM)
         {
             ResultServiceVM resultServiceVM = new ResultServiceVM();
 
-            await _clientService.Update(Mapper.Map<UpdateClientCommand>(clientUpdateInVM));
+            UpdateClientCommand updateClientCommand = Mapper.Map<UpdateClientCommand>(clientUpdateInVM);
+
+            updateClientCommand.Id = id;
+
+            await _clientService.Update(updateClientCommand);
 
             resultServiceVM.Messages.AddRange(_notifications.GetNotificationsMessages());
 

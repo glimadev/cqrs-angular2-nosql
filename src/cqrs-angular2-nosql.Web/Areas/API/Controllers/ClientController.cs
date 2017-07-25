@@ -39,9 +39,7 @@ namespace cqrs_angular2_nosql.Controllers
         // PUT api/values/5
         public async Task<ResultServiceVM> Put(Guid id, ClientUpdateInVM clientUpdateInVM)
         {
-            clientUpdateInVM.Id = id;
-
-            return await _clientApp.Update(clientUpdateInVM);
+            return await _clientApp.Put(id, clientUpdateInVM);
         }
 
         // DELETE api/values/5

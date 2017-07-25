@@ -7,8 +7,8 @@
     <ProjectGuid>{023950BB-15BB-4C92-9D49-4159B4E172F5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>cqrs_angular2_nosql.Infra.IoContainer</RootNamespace>
-    <AssemblyName>cqrs-angular2-nosql.Infra.IoContainer</AssemblyName>
+    <RootNamespace>cqrs_angular2_nosql.Infra.ContainerHandler</RootNamespace>
+    <AssemblyName>cqrs-angular2-nosql.Infra.ContainerHandler</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
