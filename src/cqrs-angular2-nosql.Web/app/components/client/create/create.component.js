@@ -17,6 +17,7 @@ var ClientCreateComponent = (function () {
         var _this = this;
         this.apiService = apiService;
         this.router = router;
+        this.client = new ClientCreate();
         this.create = function () {
             _this.apiService.postData("Client", _this.client, function () {
                 _this.router.navigate(['/client-list']);
@@ -33,4 +34,10 @@ ClientCreateComponent = __decorate([
     __metadata("design:paramtypes", [api_service_1.ApiService, router_1.Router])
 ], ClientCreateComponent);
 exports.ClientCreateComponent = ClientCreateComponent;
+var ClientCreate = (function () {
+    function ClientCreate() {
+    }
+    return ClientCreate;
+}());
+exports.ClientCreate = ClientCreate;
 //# sourceMappingURL=create.component.js.map

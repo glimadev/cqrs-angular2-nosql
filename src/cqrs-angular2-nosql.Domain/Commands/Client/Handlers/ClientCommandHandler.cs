@@ -34,7 +34,7 @@ namespace cqrs_angular2_nosql.Domain.Commands.Handlers
                 return;
             }
 
-            var client = new Client(null, message.Name, message.Email);
+            var client = new Client(null, message.Name, message.Email, message.Code, message.Document, message.Phone);
 
             if ((await _clientRepository.FirstOrDefaultAsync(c => c.Email == client.Email)) != null)
             {
@@ -54,7 +54,7 @@ namespace cqrs_angular2_nosql.Domain.Commands.Handlers
                 return;
             }
 
-            var client = new Client(message.Id.ToString(), message.Name, message.Email);
+            var client = new Client(message.Id.ToString(), message.Name, message.Email, message.Code, message.Document, message.Phone);
 
             var existing = await _clientRepository.FirstOrDefaultAsync(c => c.Email == message.Email);
 

@@ -1,4 +1,9 @@
 ﻿<h1>Listagem de Clientes</h1>
+<a [routerLink]="['/client-create']" routerLinkActive="active">Cadastrar novo</a>
 <ul>
-    <li *ngFor="let client of clients"><a [routerLink]="['/client-detail', client.id]" routerLinkActive="active">{{client.name}}</a> | <a (click)="delete(client.id)">Remover</a> |</li>
+    <li *ngFor="let client of clients">
+        <a [routerLink]="['/client-detail', client.id]" routerLinkActive="active">{{client.name}}</a> | 
+        <a [routerLink]="['/client-update', client.id]" routerLinkActive="active">Editar</a> |
+        <a (click)="delete(client.id)">Remover</a>
+    </li>
 </ul>

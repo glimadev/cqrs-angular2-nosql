@@ -17,6 +17,7 @@ var ClientUpdateComponent = (function () {
         var _this = this;
         this.apiService = apiService;
         this.router = router;
+        this.client = new ClientUpdate();
         this.update = function () {
             _this.apiService.putData("Client/?id=" + _this.id, _this.client);
         };

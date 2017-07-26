@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class ClientUpdateComponent {
     id: string;
-    client: any;
+    client: ClientUpdate = new ClientUpdate();
 
     constructor(private apiService: ApiService, route: ActivatedRoute, private router: Router) {
         this.id = route.snapshot.paramMap.get('id');
@@ -27,6 +27,9 @@ export class ClientUpdateComponent {
 }
 
 export class ClientUpdate {
-    id: string;
+    code: string;
     name: string;
+    email: string;
+    document: string;
+    phone: string;
 }

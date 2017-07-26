@@ -8,7 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 
 export class ClientCreateComponent {
-    client: any;
+    client: ClientCreate = new ClientCreate();
 
     constructor(private apiService: ApiService, private router: Router) {
     }
@@ -18,4 +18,13 @@ export class ClientCreateComponent {
             this.router.navigate(['/client-list']);
         });
     }
+}
+
+export class ClientCreate {
+    constructor() { }
+    code: string;
+    name: string;
+    email: string;
+    document : string;
+    phone: string;
 }

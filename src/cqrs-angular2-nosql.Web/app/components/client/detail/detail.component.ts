@@ -24,5 +24,9 @@ export class ClientDetailComponent {
 
 export class ClientDetail {
     id: string;
+    code: string;
     name: string;
+    email: string;
+    document: string;
+    phone: string;
 }

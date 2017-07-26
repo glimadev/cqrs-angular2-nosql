@@ -11,47 +11,52 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+var ngx_toastr_1 = require("ngx-toastr");
 var ApiService = (function () {
-    function ApiService(http) {
+    function ApiService(http, toastrService) {
         this.http = http;
+        this.toastrService = toastrService;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json', 'Accept': 'q=0.8;application/json;q=0.9' });
         this.options = new http_1.RequestOptions({ headers: this.headers });
     }
     ApiService.prototype.getData = function (endpoint, callback) {
         var _this = this;
         this.http.get('/api/' + endpoint, this.options).subscribe(function (response) {
-            _this.getResponse(response.json(), callback);
+            _this.getResponse(response.json(), false, callback);
         });
     };
     ApiService.prototype.postData = function (endpoint, body, callback) {
         var _this = this;
         this.http.post('/api/' + endpoint, body).subscribe(function (response) {
-            _this.getResponse(response.json(), callback);
+            _this.getResponse(response.json(), true, callback);
         });
     };
     ApiService.prototype.putData = function (endpoint, body, callback) {
         var _this = this;
         this.http.put('/api/' + endpoint, body).subscribe(function (response) {
-            _this.getResponse(response.json(), callback);
+            _this.getResponse(response.json(), true, callback);
         });
     };
     ApiService.prototype.deleteData = function (endpoint, callback) {
         var _this = this;
         this.http.delete('/api/' + endpoint).subscribe(function (response) {
-            _this.getResponse(response.json(), callback);
+            _this.getResponse(response.json(), true, callback);
         });
     };
-    ApiService.prototype.getResponse = function (response, callback) {
+    ApiService.prototype.getResponse = function (response, showSuccess, callback) {
         if (response.success) {
+            if (showSuccess) {
+                this.toastrService.success('Comando realizado', 'Sucesso!');
+            }
             return callback ? callback(response.data) : 1;
         }
-        //Sen�o mostrar erro em modal
+        this.toastrService.info(response.messages.join(", "), 'Info!');
     };
     return ApiService;
 }());
 ApiService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
+    __metadata("design:paramtypes", [http_1.Http, ngx_toastr_1.ToastrService])
 ], ApiService);
 exports.ApiService = ApiService;
 var ResultService = (function () {
