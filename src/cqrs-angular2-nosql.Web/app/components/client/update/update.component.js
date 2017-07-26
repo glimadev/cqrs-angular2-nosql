@@ -12,32 +12,36 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var api_service_1 = require("../../../services/api.service");
 var router_1 = require("@angular/router");
-var ClientDetailComponent = (function () {
-    function ClientDetailComponent(apiService, route) {
+var ClientUpdateComponent = (function () {
+    function ClientUpdateComponent(apiService, route, router) {
+        var _this = this;
         this.apiService = apiService;
-        this.route = route;
+        this.router = router;
+        this.update = function () {
+            _this.apiService.putData("Client/?id=" + _this.id, _this.client);
+        };
         this.id = route.snapshot.paramMap.get('id');
     }
-    ClientDetailComponent.prototype.ngOnInit = function () {
+    ClientUpdateComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.apiService.getData("Client/?id=" + this.id, function (data) {
             _this.client = data;
         });
     };
-    return ClientDetailComponent;
+    return ClientUpdateComponent;
 }());
-ClientDetailComponent = __decorate([
+ClientUpdateComponent = __decorate([
     core_1.Component({
-        templateUrl: 'detail.component.html',
+        templateUrl: 'update.component.html',
         moduleId: module.id
     }),
-    __metadata("design:paramtypes", [api_service_1.ApiService, router_1.ActivatedRoute])
-], ClientDetailComponent);
-exports.ClientDetailComponent = ClientDetailComponent;
-var ClientDetail = (function () {
-    function ClientDetail() {
+    __metadata("design:paramtypes", [api_service_1.ApiService, router_1.ActivatedRoute, router_1.Router])
+], ClientUpdateComponent);
+exports.ClientUpdateComponent = ClientUpdateComponent;
+var ClientUpdate = (function () {
+    function ClientUpdate() {
     }
-    return ClientDetail;
+    return ClientUpdate;
 }());
-exports.ClientDetail = ClientDetail;
-//# sourceMappingURL=detail.component.js.map
+exports.ClientUpdate = ClientUpdate;
+//# sourceMappingURL=update.component.js.map

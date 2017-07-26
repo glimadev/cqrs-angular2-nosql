@@ -12,32 +12,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var api_service_1 = require("../../../services/api.service");
 var router_1 = require("@angular/router");
-var ClientDetailComponent = (function () {
-    function ClientDetailComponent(apiService, route) {
-        this.apiService = apiService;
-        this.route = route;
-        this.id = route.snapshot.paramMap.get('id');
-    }
-    ClientDetailComponent.prototype.ngOnInit = function () {
+var ClientCreateComponent = (function () {
+    function ClientCreateComponent(apiService, router) {
         var _this = this;
-        this.apiService.getData("Client/?id=" + this.id, function (data) {
-            _this.client = data;
-        });
-    };
-    return ClientDetailComponent;
+        this.apiService = apiService;
+        this.router = router;
+        this.create = function () {
+            _this.apiService.postData("Client", _this.client, function () {
+                _this.router.navigate(['/client-list']);
+            });
+        };
+    }
+    return ClientCreateComponent;
 }());
-ClientDetailComponent = __decorate([
+ClientCreateComponent = __decorate([
     core_1.Component({
-        templateUrl: 'detail.component.html',
+        templateUrl: 'create.component.html',
         moduleId: module.id
     }),
-    __metadata("design:paramtypes", [api_service_1.ApiService, router_1.ActivatedRoute])
-], ClientDetailComponent);
-exports.ClientDetailComponent = ClientDetailComponent;
-var ClientDetail = (function () {
-    function ClientDetail() {
-    }
-    return ClientDetail;
-}());
-exports.ClientDetail = ClientDetail;
-//# sourceMappingURL=detail.component.js.map
+    __metadata("design:paramtypes", [api_service_1.ApiService, router_1.Router])
+], ClientCreateComponent);
+exports.ClientCreateComponent = ClientCreateComponent;
+//# sourceMappingURL=create.component.js.map
