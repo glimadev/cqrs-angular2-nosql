@@ -10,7 +10,9 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
+var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
+var api_service_1 = require("./services/api.service");
 var root1_component_1 = require("./root1/root1.component");
 var root2_component_1 = require("./root2/root2.component");
 var appRoutes = [
@@ -26,7 +28,8 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [
             platform_browser_1.BrowserModule,
-            router_1.RouterModule.forRoot(appRoutes)
+            router_1.RouterModule.forRoot(appRoutes),
+            http_1.HttpModule
         ],
         declarations: [
             app_component_1.AppComponent,
@@ -37,6 +40,7 @@ AppModule = __decorate([
             app_component_1.AppComponent
         ],
         providers: [
+            api_service_1.ApiService,
             { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }
         ]
     })

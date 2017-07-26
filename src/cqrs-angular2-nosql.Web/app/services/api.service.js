@@ -10,30 +10,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var api_service_1 = require("../services/api.service");
-var Root2Component = (function () {
-    function Root2Component(apiService) {
-        this.apiService = apiService;
+var http_1 = require("@angular/http");
+var ApiService = (function () {
+    function ApiService(http) {
+        this.http = http;
     }
-    Root2Component.prototype.ngOnInit = function () {
-        this.apiService.getData("Client", function (data) {
-            console.log(data);
+    ApiService.prototype.getData = function (endpoint, callback) {
+        var _this = this;
+        this.http.get('/api/' + endpoint).subscribe(function (response) {
+            _this.getResponse(response.json(), callback);
         });
     };
-    return Root2Component;
+    ApiService.prototype.getResponse = function (response, callback) {
+        if (response.success) {
+            callback(response.data);
+        }
+    };
+    return ApiService;
 }());
-Root2Component = __decorate([
-    core_1.Component({
-        templateUrl: 'root2.component.html',
-        moduleId: module.id
-    }),
-    __metadata("design:paramtypes", [api_service_1.ApiService])
-], Root2Component);
-exports.Root2Component = Root2Component;
-var Client = (function () {
-    function Client() {
+ApiService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], ApiService);
+exports.ApiService = ApiService;
+var ResultService = (function () {
+    function ResultService() {
     }
-    return Client;
+    return ResultService;
 }());
-exports.Client = Client;
-//# sourceMappingURL=root2.component.js.map
+exports.ResultService = ResultService;
+//# sourceMappingURL=api.service.js.map

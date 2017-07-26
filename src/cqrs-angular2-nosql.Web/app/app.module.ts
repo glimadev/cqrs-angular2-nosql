@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { ApiService } from './services/api.service';
 
 import { Root1Component } from './root1/root1.component';
 import { Root2Component } from './root2/root2.component';
@@ -18,7 +20,8 @@ const appRoutes: Routes = [
     imports:
     [
         BrowserModule,
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(appRoutes),
+        HttpModule
     ],
     declarations: [
         AppComponent,
@@ -29,6 +32,7 @@ const appRoutes: Routes = [
         AppComponent
     ],
     providers: [
+        ApiService,
         { provide: LocationStrategy, useClass: HashLocationStrategy }
     ]
 })

@@ -334,6 +334,7 @@
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\root1\root1.component.ts" />
     <TypeScriptCompile Include="app\root2\root2.component.ts" />
+    <TypeScriptCompile Include="app\services\api.service.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
