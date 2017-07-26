@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     templateUrl: 'detail.component.html',
@@ -8,22 +8,29 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class ClientDetailComponent {
-
+    router: Router;
     id: string;
     client: any;
 
-    constructor(private apiService: ApiService, private route: ActivatedRoute) {
+    constructor(private apiService : ApiService, private route : ActivatedRoute, router : Router) {
         this.id = route.snapshot.paramMap.get('id');
+        this.router = router;
     }
 
     ngOnInit() {
-        this.apiService.getData<Client>("Client/?id=" + this.id, (data: Client) => {
+        this.apiService.getData<ClientDetail>("Client/?id=" + this.id, (data: ClientDetail) => {
             this.client = data;
         });        
     }
+
+    update = () => {
+        this.apiService.putData("Client/?id=" + this.id, () => {
+            this.router.navigate(['/client-list', this.id]);
+        });   
+    }
 }
 
-export class Client {
+export class ClientDetail {
     id: string;
     name: string;
 }

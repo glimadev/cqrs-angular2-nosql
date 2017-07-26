@@ -223,6 +223,8 @@
     <Content Include="app\app.component.html" />
     <Content Include="app\app.component.js" />
     <Content Include="app\app.module.js" />
+    <Content Include="app\components\client\create\create.component.html" />
+    <Content Include="app\components\client\update\update.component.html" />
     <Content Include="app\main.js" />
     <Content Include="app\components\client\list\list.component.html" />
     <Content Include="app\components\client\detail\detail.component.html" />
@@ -327,6 +329,8 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\components\client\create\create.component.ts" />
+    <TypeScriptCompile Include="app\components\client\update\update.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\components\client\list\list.component.ts" />
     <TypeScriptCompile Include="app\components\client\detail\detail.component.ts" />

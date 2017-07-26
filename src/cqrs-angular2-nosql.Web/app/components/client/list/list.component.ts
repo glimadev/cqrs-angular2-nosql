@@ -7,20 +7,29 @@ import { ApiService } from '../../../services/api.service';
 })
 
 export class ClientListComponent {
+
+    clients: any;
+
     constructor(private apiService: ApiService) {
 
     }
 
-    clients: any;
-
     ngOnInit() {
-        this.apiService.getData<Client>("Client", (data: Client) => {
+        this.get();
+    }
+
+    get = () => {
+        this.apiService.getData<ClientList>("Client", (data: ClientList) => {
             this.clients = data;
         });
     }
+
+    delete = (id:string) => {
+        this.apiService.deleteData("Client/?id=" + id, () => this.get());
+    }
 }
 
-export class Client {
+export class ClientList {
     id: string;
     name: string;
 }

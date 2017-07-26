@@ -13,13 +13,19 @@ var core_1 = require("@angular/core");
 var api_service_1 = require("../../../services/api.service");
 var ClientListComponent = (function () {
     function ClientListComponent(apiService) {
+        var _this = this;
         this.apiService = apiService;
+        this.get = function () {
+            _this.apiService.getData("Client", function (data) {
+                _this.clients = data;
+            });
+        };
+        this.delete = function (id) {
+            _this.apiService.deleteData("Client/?id=" + id, function () { return _this.get(); });
+        };
     }
     ClientListComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.apiService.getData("Client", function (data) {
-            _this.clients = data;
-        });
+        this.get();
     };
     return ClientListComponent;
 }());
@@ -31,10 +37,10 @@ ClientListComponent = __decorate([
     __metadata("design:paramtypes", [api_service_1.ApiService])
 ], ClientListComponent);
 exports.ClientListComponent = ClientListComponent;
-var Client = (function () {
-    function Client() {
+var ClientList = (function () {
+    function ClientList() {
     }
-    return Client;
+    return ClientList;
 }());
-exports.Client = Client;
+exports.ClientList = ClientList;
 //# sourceMappingURL=list.component.js.map

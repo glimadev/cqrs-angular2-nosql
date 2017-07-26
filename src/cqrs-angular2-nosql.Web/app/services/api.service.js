@@ -11,41 +11,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
-require("rxjs/add/operator/toPromise");
 var ApiService = (function () {
     function ApiService(http) {
         this.http = http;
-        this.headers = new http_1.Headers({
-            'Content-Type': 'application/json',
-            'Accept': 'q=0.8;application/json;q=0.9'
-        });
+        this.headers = new http_1.Headers({ 'Content-Type': 'application/json', 'Accept': 'q=0.8;application/json;q=0.9' });
         this.options = new http_1.RequestOptions({ headers: this.headers });
     }
     ApiService.prototype.getData = function (endpoint, callback) {
         var _this = this;
-        this.http.get('/api/' + endpoint).subscribe(function (response) {
+        this.http.get('/api/' + endpoint, this.options).subscribe(function (response) {
+            _this.getResponse(response.json(), callback);
+        });
+    };
+    ApiService.prototype.postData = function (endpoint, body, callback) {
+        var _this = this;
+        this.http.post('/api/' + endpoint, body).subscribe(function (response) {
+            _this.getResponse(response.json(), callback);
+        });
+    };
+    ApiService.prototype.putData = function (endpoint, body, callback) {
+        var _this = this;
+        this.http.put('/api/' + endpoint, body).subscribe(function (response) {
+            _this.getResponse(response.json(), callback);
+        });
+    };
+    ApiService.prototype.deleteData = function (endpoint, callback) {
+        var _this = this;
+        this.http.delete('/api/' + endpoint).subscribe(function (response) {
             _this.getResponse(response.json(), callback);
         });
     };
     ApiService.prototype.getResponse = function (response, callback) {
         if (response.success) {
-            callback(response.data);
+            return callback ? callback(response.data) : 1;
         }
-    };
-    ApiService.prototype.getService = function (url) {
-        return this.http
-            .get(url, this.options)
-            .toPromise()
-            .then(this.extractData)
-            .catch(this.handleError);
-    };
-    ApiService.prototype.extractData = function (res) {
-        var body = res.json();
-        return body || {};
-    };
-    ApiService.prototype.handleError = function (error) {
-        console.error('An error occurred', error);
-        return Promise.reject(error.message || error);
+        //Sen�o mostrar erro em modal
     };
     return ApiService;
 }());

@@ -12,16 +12,36 @@ export class ApiService {
         this.options = new RequestOptions({ headers: this.headers });
     }
 
-    getData<T>(endpoint:string, callback:(data: T)=>void) {
+    getData<T>(endpoint:string, callback? : (data: T)=>void) {
         this.http.get('/api/' + endpoint, this.options).subscribe(response => {
             this.getResponse<T>(response.json(), callback);
         });
     }
 
-    private getResponse<T>(response: ResultService<T>, callback: (data: T) => void) {
-        if (response.success) {
-            callback(response.data);
+    postData(endpoint: string, body: any, callback?: () => void) {
+        this.http.post('/api/' + endpoint, body).subscribe(response => {
+            this.getResponse(response.json(), callback);
+        });
+    }
+
+    putData(endpoint: string, body: any, callback?: () => void) {
+        this.http.put('/api/' + endpoint, body).subscribe(response => {
+            this.getResponse(response.json(), callback);
+        });
+    }
+
+    deleteData(endpoint: string, callback?: () => void) {
+        this.http.delete('/api/' + endpoint).subscribe(response => {
+            this.getResponse(response.json(), callback);
+        });
+    }
+
+    private getResponse<T>(response: ResultService<T>, callback?: (data: T) => void) {
+        if (response.success) {            
+            return callback ? callback(response.data) : 1;
         }
+
+        //Senão mostrar erro em modal
     }
 }
 
