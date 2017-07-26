@@ -224,10 +224,8 @@
     <Content Include="app\app.component.js" />
     <Content Include="app\app.module.js" />
     <Content Include="app\main.js" />
-    <Content Include="app\root1\root1.component.html" />
-    <Content Include="app\root1\root1.component.js" />
-    <Content Include="app\root2\root2.component.html" />
-    <Content Include="app\root2\root2.component.js" />
+    <Content Include="app\components\client\list\list.component.html" />
+    <Content Include="app\components\client\detail\detail.component.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -263,8 +261,6 @@
     <Content Include="app\app.component.js.map" />
     <Content Include="app\app.module.js.map" />
     <Content Include="app\main.js.map" />
-    <Content Include="app\root1\root1.component.js.map" />
-    <Content Include="app\root2\root2.component.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -332,8 +328,8 @@
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\main.ts" />
-    <TypeScriptCompile Include="app\root1\root1.component.ts" />
-    <TypeScriptCompile Include="app\root2\root2.component.ts" />
+    <TypeScriptCompile Include="app\components\client\list\list.component.ts" />
+    <TypeScriptCompile Include="app\components\client\detail\detail.component.ts" />
     <TypeScriptCompile Include="app\services\api.service.ts" />
   </ItemGroup>
   <PropertyGroup>

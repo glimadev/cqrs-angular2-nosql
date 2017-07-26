@@ -10,30 +10,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var api_service_1 = require("../services/api.service");
-var Root2Component = (function () {
-    function Root2Component(apiService) {
+var api_service_1 = require("../../../services/api.service");
+var router_1 = require("@angular/router");
+var ClientDetailComponent = (function () {
+    function ClientDetailComponent(apiService, route) {
         this.apiService = apiService;
+        this.route = route;
+        this.clientId = route.snapshot.paramMap.get('id');
     }
-    Root2Component.prototype.ngOnInit = function () {
-        this.apiService.getData("Client", function (data) {
-            console.log(data);
+    ClientDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.apiService.getData("Client/?id=" + this.clientId, function (data) {
+            _this.client = data;
         });
     };
-    return Root2Component;
+    return ClientDetailComponent;
 }());
-Root2Component = __decorate([
+ClientDetailComponent = __decorate([
     core_1.Component({
-        templateUrl: 'root2.component.html',
+        templateUrl: 'detail.component.html',
         moduleId: module.id
     }),
-    __metadata("design:paramtypes", [api_service_1.ApiService])
-], Root2Component);
-exports.Root2Component = Root2Component;
+    __metadata("design:paramtypes", [api_service_1.ApiService, router_1.ActivatedRoute])
+], ClientDetailComponent);
+exports.ClientDetailComponent = ClientDetailComponent;
 var Client = (function () {
     function Client() {
     }
     return Client;
 }());
 exports.Client = Client;
-//# sourceMappingURL=root2.component.js.map
+//# sourceMappingURL=detail.component.js.map

@@ -13,11 +13,11 @@ var common_1 = require("@angular/common");
 var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var api_service_1 = require("./services/api.service");
-var root1_component_1 = require("./root1/root1.component");
-var root2_component_1 = require("./root2/root2.component");
+var list_component_1 = require("./components/client/list/list.component");
+var detail_component_1 = require("./components/client/detail/detail.component");
 var appRoutes = [
-    { path: 'root1', component: root1_component_1.Root1Component },
-    { path: 'root2', component: root2_component_1.Root2Component }
+    { path: 'client-list', component: list_component_1.ClientListComponent },
+    { path: 'client-detail/:id', component: detail_component_1.ClientDetailComponent }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -33,8 +33,8 @@ AppModule = __decorate([
         ],
         declarations: [
             app_component_1.AppComponent,
-            root1_component_1.Root1Component,
-            root2_component_1.Root2Component
+            list_component_1.ClientListComponent,
+            detail_component_1.ClientDetailComponent
         ],
         bootstrap: [
             app_component_1.AppComponent

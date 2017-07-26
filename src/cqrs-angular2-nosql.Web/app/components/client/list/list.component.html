@@ -1,0 +1,4 @@
+﻿<h1>Listagem de Clientes</h1>
+<ul>
+    <li *ngFor="let client of clients"><a [routerLink]="['/client-detail', client.id]" routerLinkActive="active">{{client.name}}</a></li>
+</ul>

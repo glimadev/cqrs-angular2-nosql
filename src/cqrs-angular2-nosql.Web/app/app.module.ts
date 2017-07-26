@@ -7,12 +7,12 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ApiService } from './services/api.service';
 
-import { Root1Component } from './root1/root1.component';
-import { Root2Component } from './root2/root2.component';
+import { ClientListComponent } from './components/client/list/list.component';
+import { ClientDetailComponent } from './components/client/detail/detail.component';
 
 const appRoutes: Routes = [
-    { path: 'root1', component: Root1Component },
-    { path: 'root2', component: Root2Component }
+    { path: 'client-list', component: ClientListComponent },
+    { path: 'client-detail/:id', component: ClientDetailComponent }
 ];
 
 
@@ -25,8 +25,8 @@ const appRoutes: Routes = [
     ],
     declarations: [
         AppComponent,
-        Root1Component,
-        Root2Component
+        ClientListComponent,
+        ClientDetailComponent
     ],
     bootstrap: [
         AppComponent

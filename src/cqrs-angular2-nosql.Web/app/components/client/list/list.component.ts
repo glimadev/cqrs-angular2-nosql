@@ -1,19 +1,21 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../services/api.service';
+import { ApiService } from '../../../services/api.service';
 
 @Component({
-    templateUrl: 'root2.component.html',
+    templateUrl: 'list.component.html',
     moduleId: module.id
 })
 
-export class Root2Component {
+export class ClientListComponent {
     constructor(private apiService: ApiService) {
 
     }
-    
+
+    clients: any;
+
     ngOnInit() {
         this.apiService.getData<Client>("Client", (data: Client) => {
-            console.log(data);
+            this.clients = data;
         });
     }
 }
