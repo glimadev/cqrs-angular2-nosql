@@ -12,5 +12,5 @@ TECNOLOGIAS USADAS
 
 INSTALAÇÃO
 - DocumentDB - Instale e inicie o emulador local: https://docs.microsoft.com/pt-br/azure/cosmos-db/local-emulator
-- Typescript - Certifique-se que o Visual Studio tenha a versão mais recente da extensão do Typescript.
+- Typescript - Certifique-se que o seu Visual Studio tenha a versão mais recente da extensão do Typescript.
 - Dê um play no projeto. =)
