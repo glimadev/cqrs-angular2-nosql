@@ -1,0 +1,174 @@
+{
+	"variables": [],
+	"info": {
+		"name": "cqrs-angular2-nosql",
+		"_postman_id": "ba552ecd-b8cd-b7cc-e911-907d96ed7d77",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Put Client",
+			"request": {
+				"url": {
+					"raw": "http://localhost:61978/api/Client/?id=d9897a8f-e830-4b62-a14f-029c374da3aa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "61978",
+					"path": [
+						"api",
+						"Client",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "d9897a8f-e830-4b62-a14f-029c374da3aa",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Gilvan Júnior\",\n    \"email\": \"gilvanjunior@gmail.com\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Post Client",
+			"request": {
+				"url": "http://localhost:61978/api/Client",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Gilvan Júnior\",\n    \"email\": \"gilvanjunior360@gmail.com\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Client",
+			"request": {
+				"url": {
+					"raw": "http://localhost:61978/api/Client/?id=d9897a8f-e830-4b62-a14f-029c374da3aa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "61978",
+					"path": [
+						"api",
+						"Client",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "d9897a8f-e830-4b62-a14f-029c374da3aa",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetAll Client",
+			"request": {
+				"url": "http://localhost:61978/api/Client",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Gilvan\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Client",
+			"request": {
+				"url": {
+					"raw": "http://localhost:61978/api/Client/?id=d9897a8f-e830-4b62-a14f-029c374da3aa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "61978",
+					"path": [
+						"api",
+						"Client",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "d9897a8f-e830-4b62-a14f-029c374da3aa",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Gilvan\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
