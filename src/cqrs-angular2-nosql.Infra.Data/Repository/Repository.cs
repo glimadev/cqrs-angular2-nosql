@@ -16,6 +16,10 @@ using System.Threading.Tasks;
 
 namespace cqrs_angular2_nosql.Infra.Data.Repository
 {
+    /// <summary>
+    /// Implementação do repository base com DocumentDB
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class Repository<T> : IRepository<T> where T : class, IEntityBase
     {
         private DocumentClient _client;

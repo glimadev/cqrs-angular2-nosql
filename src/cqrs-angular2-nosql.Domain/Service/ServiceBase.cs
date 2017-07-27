@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace cqrs_angular2_nosql.Domain.Service
 {
+    /// <summary>
+    /// Serviço base dos dominíos, ele faz o meio de campo entre repository e application
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
     public class ServiceBase<TEntity> : IServiceBase<TEntity> where TEntity : class, IEntityBase
     {
         readonly IRepository<TEntity> _repository;

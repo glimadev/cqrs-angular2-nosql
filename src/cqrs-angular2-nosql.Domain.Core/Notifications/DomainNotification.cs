@@ -3,6 +3,9 @@ using System;
 
 namespace cqrs_angular2_nosql.Domain.Core.Notifications
 {
+    /// <summary>
+    /// Model dos eventos
+    /// </summary>
     public class DomainNotification : Event
     {
         public Guid DomainNotificationId { get; private set; }

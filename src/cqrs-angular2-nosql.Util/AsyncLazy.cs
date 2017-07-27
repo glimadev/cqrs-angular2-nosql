@@ -4,6 +4,10 @@ using System.Threading.Tasks;
 
 namespace cqrs_angular2_nosql.Util
 {
+    /// <summary>
+    /// Lazy Load de funções
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class AsyncLazy<T> : Lazy<Task<T>>
     {
         public AsyncLazy(Func<T> valueFactory) :

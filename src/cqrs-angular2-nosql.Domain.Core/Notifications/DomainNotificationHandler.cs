@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 
 namespace cqrs_angular2_nosql.Domain.Core.Notifications
 {
+    /// <summary>
+    /// Handlers dos eventos do command
+    /// </summary>
     public class DomainNotificationHandler : IDomainNotificationHandler<DomainNotification>
     {
         private List<DomainNotification> _notifications;
