@@ -1,8 +1,8 @@
 # CQRS-Angular2-NoSQL
 
-Uma aplicação SPA de CRUD de clientes em que foi utilizado a arquitetura DDD e o padrão de design CQRS 
+A CRUD SPA client management application using the DDD architecture and the CQRS design pattern of immediate consistency
 
-TECNOLOGIAS USADAS
+TECHNOLOGIES
 - C#;
 - .NET 4.6.1;
 - HTML5/CSS3;
@@ -10,7 +10,7 @@ TECNOLOGIAS USADAS
 - Typescript;
 - NoSQL DocumentDB;
 
-INSTALAÇÃO
-- DocumentDB - Instale e inicie o emulador local: https://docs.microsoft.com/pt-br/azure/cosmos-db/local-emulator
-- Typescript - Certifique-se que o seu Visual Studio tenha a versão mais recente da extensão do Typescript.
-- Dê um play no projeto. =)
+INSTALLATION
+- DocumentDB - Install and start the local emulator: https://docs.microsoft.com/pt-br/azure/cosmos-db/local-emulator
+- Typescript - Make sure you have the lasted Typescript extension on yours VS.
+- Press Start on the project. =)
